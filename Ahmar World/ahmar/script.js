@@ -15,22 +15,31 @@ async function drawCharacters() {
     let data = await makeQuery()
     divCharacters.innerHTML = ``
     for (let character of data) {
+        let characterDiv = document.createElement(`div`)
+        characterDiv.classList.add(`pers`)
+        characterDiv.setAttribute(`character`, `${character.id}`)
+        characterDiv.style.marginTop =`20px`
+        characterDiv.style.width =`300px`
         let pCharacter = document.createElement(`p`)
         pCharacter.innerHTML = `${character.name}`
-        pCharacter.style.border = `1px solid red`
-        pCharacter.setAttribute(`id`, `pers`)
-        pCharacter.setAttribute(`character`, `${character.id}`)
-        pCharacter.style.padding = `5px`
-        pCharacter.style.cursor = `pointer`
-        divCharacters.appendChild(pCharacter)
+        let imgCharacter = document.createElement(`img`)
+        imgCharacter.setAttribute(`src`, `${character.image}`)
+        imgCharacter.setAttribute(`alt`, `KOTINDI KYS`)
+        imgCharacter.style.width =`150px`
+        characterDiv.style.border = `1px solid red`
+        characterDiv.style.padding = `5px`
+        characterDiv.style.cursor = `pointer`
+        characterDiv.appendChild(pCharacter)
+        characterDiv.appendChild(imgCharacter)
+        divCharacters.appendChild(characterDiv)
     }
 }
 drawCharacters().then(() => {
-    let charactersP = document.querySelectorAll(`#pers`)
-    for (let p of charactersP) {
+    let charactersDiv = document.querySelectorAll(`.pers`)
+    for (let p of charactersDiv) {
         p.addEventListener(`click`, () => {
             localStorage.setItem(`clickedCharacterId`, `${p.getAttribute('character')}`)
-            location.href = `../Yeldos/second.html`
+            location.href = `../yeldos/second.html`
         })
     }
 })
