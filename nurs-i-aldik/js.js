@@ -13,7 +13,7 @@ async function drawUsers() {
   
   for (let user of characters) {
     if (select.value === user.house) {
-      usersHTML += `<div class="user__div" house="${user.house}"><p>${user.name}</p></div>`
+      usersHTML += `<div id="userDiv" class="user__div" name="${user.name}" house="${user.house}"><p>${user.name}</p></div>`
     }
   }
   
@@ -26,11 +26,11 @@ btn.addEventListener('click', async () => {
 
 drawUsers().then(() => {
   let userDivs = document.querySelectorAll('.user__div');
-  
+  let userDiv = document.querySelector("#userDiv")
   for (const userDiv of userDivs) {
     userDiv.addEventListener('click', () => {
-      localStorage.setItem('clickedCharacterId', userDiv.getAttribute('house'));
-      location.href = 'Aldik.html';
+      localStorage.setItem('clickedCharacterId', userDiv.getAttribute('name'));
+      location.href = 'aldik.html';
     });
   }
 });
