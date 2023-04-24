@@ -10,17 +10,16 @@ async function showActor(){
     let year = new Date();
     let curYear = year.getFullYear();
     for(let actor of actors){
-      
-       
-       div.innerHTML+=`
-       <p>${actor.name}</p>
-       <p>${actor.actor}</p>
-       <p>${actor.alternate_names}</p>
-       <p>${actor.dateOfBirth}(${curYear - actor.yearOfBirth})</p>
-       <p>${actor.house}</p>
-       <img src="${actor.image}">
-       <hr>
-       `
+       if(actor.id == studentsId ){
+        div.innerHTML+=`
+        <p>${actor.name}</p>
+        <p>${actor.actor}</p>
+        <p>${actor.alternate_names}</p>
+        <p>${actor.dateOfBirth}(${curYear - actor.yearOfBirth})</p>
+        <p>${actor.house}</p>
+        <img src="${actor.image}">
+        `
+       }
     }
 }
 showActor()

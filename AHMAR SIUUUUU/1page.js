@@ -18,6 +18,6 @@ select.addEventListener('change', async () => {
     console.log(data)
 })
 function getId(data){
-    localStorage.getItem("getName", data);
+    localStorage.setItem("getName", data);
     location.href="2page.html"
 }
