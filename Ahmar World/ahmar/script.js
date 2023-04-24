@@ -30,7 +30,7 @@ drawCharacters().then(() => {
     for (let p of charactersP) {
         p.addEventListener(`click`, () => {
             localStorage.setItem(`clickedCharacterId`, `${p.getAttribute('character')}`)
-            location.href = `../Yeldos/second.html`
+            location.href = `../yeldos/second.html`
         })
     }
 })
