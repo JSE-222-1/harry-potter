@@ -20,6 +20,8 @@ async function drawCharacters() {
         characterDiv.setAttribute(`character`, `${character.id}`)
         characterDiv.style.marginTop =`20px`
         characterDiv.style.width =`300px`
+        characterDiv.setAttribute(`id`, `pers`)
+        characterDiv.setAttribute(`character`, `${character.id}`)
         let pCharacter = document.createElement(`p`)
         pCharacter.innerHTML = `${character.name}`
         let imgCharacter = document.createElement(`img`)
@@ -29,7 +31,6 @@ async function drawCharacters() {
         characterDiv.style.border = `1px solid red`
         characterDiv.style.padding = `5px`
         characterDiv.style.cursor = `pointer`
-        characterDiv.appendChild(pCharacter)
         characterDiv.appendChild(imgCharacter)
         divCharacters.appendChild(characterDiv)
     }
