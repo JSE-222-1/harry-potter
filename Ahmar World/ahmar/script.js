@@ -31,6 +31,7 @@ async function drawCharacters() {
         characterDiv.style.border = `1px solid red`
         characterDiv.style.padding = `5px`
         characterDiv.style.cursor = `pointer`
+        characterDiv.appendChild(pCharacter)
         characterDiv.appendChild(imgCharacter)
         divCharacters.appendChild(characterDiv)
     }
