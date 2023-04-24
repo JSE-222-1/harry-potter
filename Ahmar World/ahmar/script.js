@@ -15,14 +15,20 @@ async function drawCharacters() {
     let data = await makeQuery()
     divCharacters.innerHTML = ``
     for (let character of data) {
+        let characterDiv = document.createElement(`div`)
+        characterDiv.setAttribute(`id`, `pers`)
+        characterDiv.setAttribute(`character`, `${character.id}`)
         let pCharacter = document.createElement(`p`)
         pCharacter.innerHTML = `${character.name}`
-        pCharacter.style.border = `1px solid red`
-        pCharacter.setAttribute(`id`, `pers`)
-        pCharacter.setAttribute(`character`, `${character.id}`)
-        pCharacter.style.padding = `5px`
-        pCharacter.style.cursor = `pointer`
-        divCharacters.appendChild(pCharacter)
+        let imgCharacter = document.createElement(`img`)
+        imgCharacter.setAttribute(`src`, `${character.image}`)
+        imgCharacter.style.width =`150px`
+        characterDiv.style.border = `1px solid red`
+        characterDiv.style.padding = `5px`
+        characterDiv.style.cursor = `pointer`
+        characterDiv.appendChild(pCharacter)
+        characterDiv.appendChild(imgCharacter)
+        divCharacters.appendChild(characterDiv)
     }
 }
 drawCharacters().then(() => {
