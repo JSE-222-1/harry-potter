@@ -31,19 +31,28 @@ async function drawCharacters() {
         characterDiv.style.border = `1px solid red`
         characterDiv.style.padding = `5px`
         characterDiv.style.cursor = `pointer`
+        characterDiv.appendChild(pCharacter)
         characterDiv.appendChild(imgCharacter)
         divCharacters.appendChild(characterDiv)
     }
 }
 drawCharacters().then(() => {
     let charactersDiv = document.querySelectorAll(`.pers`)
-    for (let p of charactersDiv) {
-        p.addEventListener(`click`, () => {
-            localStorage.setItem(`clickedCharacterId`, `${p.getAttribute('character')}`)
+    for (let div of charactersDiv) {
+        div.addEventListener(`click`, () => {
+            localStorage.setItem(`clickedCharacterId`, `${div.getAttribute('character')}`)
             location.href = `../yeldos/second.html`
         })
     }
 })
 showBtn.addEventListener(`click`, () => {
-    drawCharacters()
+    drawCharacters().then(() => {
+        let charactersDiv = document.querySelectorAll(`.pers`)
+        for (let div of charactersDiv) {
+            div.addEventListener(`click`, () => {
+                localStorage.setItem(`clickedCharacterId`, `${div.getAttribute('character')}`)
+                location.href = `../yeldos/second.html`
+            })
+        }
+    })
 })
