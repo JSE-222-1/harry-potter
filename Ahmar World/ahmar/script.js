@@ -7,7 +7,7 @@ async function makeQuery() {
     if(selectCharacters.value != `all`){
         link = `${BASE_URL + `/house/` + selectCharacters.value}`
     }
-    let response = await fetch(`${link}`)
+    let response = await fetch(link)
     let data = await response.json()
     return data
 }
