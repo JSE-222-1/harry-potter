@@ -16,7 +16,6 @@ async function showStudent(){
                 altNames += `${altName}`
             }
             let nowDay = new Date().getFullYear()
-            console.log(nowDay, student.dateOfBirth)
             let p = document.createElement(`p`)
             p.innerHTML = `${student.name}`
             if(student.alive){
